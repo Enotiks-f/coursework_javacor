@@ -1,5 +1,7 @@
 package pro.sing.demojavacorcoursework.model;
 
+import java.util.Objects;
+
 public class Question {
 
     String question;
@@ -12,6 +14,18 @@ public class Question {
 
     public String getQuestion() {
         return question;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Question question1 = (Question) o;
+        return Objects.equals(question, question1.question) && Objects.equals(answer, question1.answer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(question, answer);
     }
 
     public void setQuestion(String question) {
