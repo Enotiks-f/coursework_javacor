@@ -5,5 +5,5 @@ import pro.sing.demojavacorcoursework.model.Question;
 import java.util.List;
 
 public interface ExaminerService {
-    public List<Question> getQuestions(int question);
+    public List<String> getQuestions(int question);
 }

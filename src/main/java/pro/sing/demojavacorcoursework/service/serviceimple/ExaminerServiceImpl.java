@@ -19,12 +19,17 @@ public class ExaminerServiceImpl implements ExaminerService {
     }
 
     @Override
-    public List<Question> getQuestions(int question) {
-        List<Question> questionsList = javaQuestionService.getQuestions();
-        while (question > 0) {
-            questions.add(javaQuestionService.getRandomQuestion());
+    public List<String> getQuestions(int question) {
+
+        if (question > javaQuestionService.getQuestions().size()) {
+            throw new IllegalArgumentException();
         }
-        question--;
+
+        List<String> questions = new ArrayList<>();
+        for (int i = 0; i < question; i++) {
+            String que = javaQuestionService.getRandomQuestion().getQuestion();
+            questions.add(que);
+        }
         return questions;
     }
 }

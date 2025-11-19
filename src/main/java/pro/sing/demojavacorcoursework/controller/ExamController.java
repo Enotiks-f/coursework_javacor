@@ -18,7 +18,7 @@ public class ExamController {
     }
 
     @GetMapping("/get/question")
-    public List<Question> getQuestions(@RequestParam int amount) {
-        return examinerService.getQuestions(amount);
-    }
+        public List<String> getQuestions(@RequestParam int amount) {
+                return examinerService.getQuestions(amount);
+            }
 }
